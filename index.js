@@ -19,14 +19,6 @@ app.use( express.json() );
 //rutas
  app.use('/api/auth', require('./routes/auth'));
  app.use('/api/mesas', require('./routes/mesas'));
- app.use(express.urlencoded({ extended: false }));
- app.use(express.json());
- app.get('/urlparam', (req, res) => {
-    res.send(req.query);
-  });
-  app.post('/urljson', (req, res) => {
-    res.send(req.body);
-  });
 
 
 //escuchar peticiones 

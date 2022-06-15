@@ -15,7 +15,7 @@ tablesAvailable
 router.put('/delete/table',
 deleteTable)
 
-router.get('get/table', 
+router.get('/get/table', 
 getTable)
 
 
