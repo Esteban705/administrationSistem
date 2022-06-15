@@ -91,10 +91,31 @@ const deleteTable = async (req, res = response) => {
 
 }
 
+const getTable = async (req, res = response) => {
+
+  const {id} = req.body
+
+  console.log(id)
+  try {
+
+    const table = await MesasSchema.find({id:id})
+    return res.json({ status: 200, data: table });
+
+  } catch (error) {
+    return res.status(400).json({
+      ok: false,
+      errors: "error",
+    });
+  }
+}
+
+
+
 
 
 module.exports = {
   createNewTable,
   tablesAvailable,
-  deleteTable
+  deleteTable,
+  getTable
 };
