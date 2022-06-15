@@ -34,12 +34,4 @@ app.listen(process.env.PORT, () =>{
 
     console.log(`corriendo el puerto ${process.env.PORT}`)
 })
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('enzo puto')
-console.log('puto el que lee')
+
