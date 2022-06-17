@@ -1,7 +1,7 @@
 const express = require('express');
 const conectDB = require('./database/config');
 require('dotenv').config();
-
+const cord = require('cors')
 
 
 //crear el servidor
@@ -15,6 +15,9 @@ conectDB();
 app.use(express.static('public'));
 
 app.use( express.json() );
+
+
+app.use(cord());
 
 //rutas
  app.use('/api/auth', require('./routes/auth'));

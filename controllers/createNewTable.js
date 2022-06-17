@@ -6,11 +6,16 @@ const MesasSchema = require("../models/Mesas");
 
 const createNewTable = async (req, res = response) => {
 
-    const { number, id, url } = req.body;
-  try {
   
-    let mesa = await MesasSchema.findOne({ id });
+    const { number, id, url } = req.body;
+
+
+  try {
+    console.log(id,'estos id')
+    let mesa = await MesasSchema.find( { id: id } );
+    console.log(mesa,'estos mp')
     if(mesa){
+      console.log('estos')
         return res.status(400).json({
             ok: false,
             msj: 'la mesa ya existe'
@@ -18,12 +23,13 @@ const createNewTable = async (req, res = response) => {
     }
 
      mesa = new MesasSchema(req.body);
-
+    console.log(mesa, 'asdasd')
         await mesa.save();
 
     res.status(201).json({
         ok: true,
         msg: "Mesa Registrada",
+        data: mesa,
       });
       
   } catch (error) {
@@ -93,12 +99,10 @@ const deleteTable = async (req, res = response) => {
 
 const getTable = async (req, res = response) => {
 
-  const {id} = req.body
 
-  console.log(id)
   try {
 
-    const table = await MesasSchema.find({id:id})
+    const table = await MesasSchema.find()
     return res.json({ status: 200, data: table });
 
   } catch (error) {
